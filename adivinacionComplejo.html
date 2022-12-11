@@ -1,0 +1,71 @@
+
+<head>
+<meta charset="UTF-8">
+
+
+<input/>
+<button> adivina el numero </button>
+
+
+<script>
+ 
+ function aleatorio(){
+
+    return Math.round(Math.random()*10);
+ }
+
+ function sortearNumero(cantidad){
+    var secreto=[];
+    var contador=1;
+
+    while(contador<=cantidad){
+
+        numeroAleatorio = aleatorio();
+        secreto.push(numeroAleatorio);
+        contador++;
+    }
+
+    return secreto;
+ } 
+
+ var secreto= sortearNumero(4);
+
+ console.log(secreto);
+
+var input = document.querySelector("input");
+
+input.focus();
+
+function verificar(){
+
+    var encontrado = false;
+
+    for (var posicion = 0; posicion < secreto.length; posicion++) {
+
+        if(parseInt(input.value) == secreto[posicion]){
+
+            alert("usted lo encontro");
+
+            encontrado=true;
+            break;         
+    }
+
+}
+
+
+    if (encontrado == false){
+
+        alert ("usted erró");
+}
+
+
+
+input.value = "";
+input.focus();
+}
+
+  var button = document.querySelector("button");
+    button.onclick= verificar;
+
+</script>
+</head>
